@@ -69,13 +69,6 @@ Idade: 30
 Lista em JSON:
 [{"nome":"João","idade":25},{"nome":"Maria","idade":30}]
 ```
-
----
-
-## Observações
-- O projeto foi desenvolvido como prática de **POO em Java**, **entrada de dados com Scanner** e **serialização de objetos em JSON**.  
-- Caso utilize um IDE como **IntelliJ** ou **VS Code**, basta importar o projeto como **Maven Project** que as dependências serão baixadas automaticamente.  
-
 ---
 
 ## Resolução de Conflitos no Git
