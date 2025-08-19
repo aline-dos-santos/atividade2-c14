@@ -10,7 +10,7 @@ public class Main {
         Gson gson = new Gson();
         Scanner sc = new Scanner(System.in);
 
-        List<Pessoa> listp = new ArrayList<>();
+        List<Pessoa> teste = new ArrayList<>();
         try {
             System.out.print("Quantas pessoas deseja cadastrar? ");
             int qtd = sc.nextInt();
@@ -26,11 +26,14 @@ public class Main {
                 sc.nextLine(); // consumir quebra de linha
 
                 Pessoa p = new Pessoa(nome, idade);
-                listp.add(p);
+
+
+                teste.add(p);
             }
 
             // Converte a lista inteira para JSON
-            String json = gson.toJson(listp);
+            String json = gson.toJson(teste);
+
             System.out.println("\nLista em JSON:");
             System.out.println(json);
 
