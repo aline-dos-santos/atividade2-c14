@@ -71,3 +71,7 @@ O processo de resolução foi feito no **Visual Studio Code**, conforme os passo
 
 5. Após a resolução, o commit e o push foram realizados diretamente pelo próprio **Visual Studio Code**, utilizando a aba de controle de versão.
 
+## Histórico de Erros/Regressões
+Regressão em `ContaBancaria.sacar()`;
+Erro introduzido: removida a verificação de saldo, fazendo com que o teste `sacarexceptionTest()` falhe.
+
