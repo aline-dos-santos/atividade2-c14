@@ -41,36 +41,6 @@ Maven baixará automaticamente a dependência durante o build.
 
 ---
 
-## Execução do Projeto
-
-### 1. Compilar o Projeto
-Dentro da pasta do projeto (`Exercicio1_c14`), execute:
-```bash
-mvn clean install
-```
-
-### 2. Rodar a aplicação
-```bash
-mvn exec:java -Dexec.mainClass="org.example.Main"
-```
-
-### 3. Exemplo de Execução
-```text
-Quantas pessoas deseja cadastrar? 2
-
-Cadastro da pessoa 1
-Nome: João
-Idade: 25
-
-Cadastro da pessoa 2
-Nome: Maria
-Idade: 30
-
-Lista em JSON:
-[{"nome":"João","idade":25},{"nome":"Maria","idade":30}]
-```
----
-
 ## Resolução de Conflitos no Git
 
 Durante o desenvolvimento, ocorreu um conflito de merge entre as branches `main` e `nova`.  
