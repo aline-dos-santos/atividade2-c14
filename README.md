@@ -74,4 +74,5 @@ O processo de resolução foi feito no **Visual Studio Code**, conforme os passo
 ## Histórico de Erros/Regressões
 Regressão em `ContaBancaria.sacar()`;
 Erro introduzido: removida a verificação de saldo, fazendo com que o teste `sacarexceptionTest()` falhe.
-
+Correção aplicada: restaurada verificação de `valor > 0 && valor <= saldo` e lançamento de exceção para valores inválidos;
+Resultado: O teste passou novamente.
