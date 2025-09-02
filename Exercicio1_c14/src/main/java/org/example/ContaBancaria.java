@@ -20,7 +20,7 @@ public class ContaBancaria {
         if (valor > 0 && valor <= saldo) {
             this.saldo -= valor;
         } else {
-            throw new RuntimeException("Seu saldo é insuficiente para esse saque.");
+            throw new RuntimeException("Seu saldo é insuficiente para esse saque. Por favor, tente novamente.");
         }
     }
 }
