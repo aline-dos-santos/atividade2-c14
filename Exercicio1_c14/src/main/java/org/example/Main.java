@@ -25,7 +25,35 @@ public class Main {
                 int idade = sc.nextInt();
                 sc.nextLine(); // consumir quebra de linha
 
-                Pessoa p = new Pessoa(nome, idade);
+                System.out.print("Numero da Conta bancaria: ");
+                String numero = sc.next();
+                sc.nextLine(); // consumir quebra de linha
+
+                System.out.print("Saldo da Conta bancaria: ");
+                Double saldo = sc.nextDouble();
+                sc.nextLine(); // consumir quebra de linha
+
+                ContaBancaria conta = new ContaBancaria(numero, saldo);
+
+                System.out.print("Insira o nome da rua do endereço: ");
+                String rua = sc.next();
+                sc.nextLine(); // consumir quebra de linha
+
+                System.out.print("Insira a cidade: ");
+                String cidade = sc.next();
+                sc.nextLine(); // consumir quebra de linha
+
+                System.out.print("Insira o Estado: ");
+                String estado = sc.next();
+                sc.nextLine(); // consumir quebra de linha
+
+                System.out.print("Insira a cep: ");
+                String cep = sc.next();
+                sc.nextLine(); // consumir quebra de linha
+
+                Endereco endereco = new Endereco(rua, cidade, estado, cep);
+
+                Pessoa p = new Pessoa(nome, idade, conta, endereco);
 
 
                 teste.add(p);
