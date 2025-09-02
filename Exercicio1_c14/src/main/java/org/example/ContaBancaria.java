@@ -17,10 +17,10 @@ public class ContaBancaria {
     }
 
     public void sacar(double valor) {
-        if (valor > 0 && valor <= saldo) {
+        //if (valor > 0 && valor <= saldo) {
             this.saldo -= valor;
-        } else {
-            throw new RuntimeException("Seu saldo é insuficiente para esse saque.");
-        }
+        //} else {
+        //    throw new RuntimeException("Seu saldo é insuficiente para esse saque.");
+        //}
     }
 }
