@@ -1,10 +1,12 @@
-import org.example.ContaBancaria;
+package dados;
+
+import org.example.dados.ContaBancaria;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class ContaBancariaTeste {
+public class ContaBancariaTest {
     @Test
     public void depositarTest(){
         ContaBancaria conta = new ContaBancaria("77547", 600);
@@ -14,9 +16,8 @@ public class ContaBancariaTeste {
 
     @Test
     public void sacarTest(){
-        double teste = 400;
         ContaBancaria conta = new ContaBancaria("77547", 600);
-        conta.sacar(teste);
+        conta.sacar(400);
         assertEquals(200.0, conta.getSaldo(), 0.001);
     }
 
@@ -30,5 +31,26 @@ public class ContaBancariaTeste {
         });
 
         assertEquals("Seu saldo é insuficiente para esse saque.", exception.getMessage());
+    }
+
+    @Test
+    public void naoDeveDepositarValorNegativo() {
+        ContaBancaria conta = new ContaBancaria("123", 100.0);
+        conta.depositar(-50.0);
+        assertEquals(100.0, conta.getSaldo(), 0.01);
+    }
+
+    @Test
+    public void naoDeveDepositarZero() {
+        ContaBancaria conta = new ContaBancaria("123", 100.0);
+        conta.depositar(0.0);
+        assertEquals(100.0, conta.getSaldo(), 0.01);
+    }
+
+    @Test
+    public void deveSacarSaldoTotal() {
+        ContaBancaria conta = new ContaBancaria("123", 500.0);
+        conta.sacar(500.0);
+        assertEquals(0.0, conta.getSaldo(), 0.01);
     }
 }

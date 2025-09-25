@@ -1,10 +1,7 @@
-package org.example;
+package org.example.dados;
 
 public class Endereco {
-    private String rua;
-    private String cidade;
-    private String estado;
-    private String cep;
+    private String rua, cidade, estado, cep;
 
     public Endereco(String rua, String cidade, String estado, String cep) {
         this.rua = rua;
@@ -13,12 +10,9 @@ public class Endereco {
         this.cep = cep;
     }
 
+    // Getters
     public String getRua() { return rua; }
     public String getCidade() { return cidade; }
     public String getEstado() { return estado; }
     public String getCep() { return cep; }
-
-    public String enderecoCompleto() {
-        return rua + ", " + cidade + " - " + estado + ", CEP: " + cep;
-    }
 }

@@ -1,16 +1,21 @@
-import org.example.ContaBancaria;
-import org.example.Endereco;
-import org.example.Pessoa;
+package pessoa;
+
+import org.example.dados.ContaBancaria;
+import org.example.dados.Endereco;
+import org.example.pessoa.Pessoa;
 import org.junit.Test;
 import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertThrows;
 
-public class PessoaTeste {
+
+public class PessoaTest {
     @Test
     public void testeConverterListaParaJson() {
         Gson gson = new Gson();
@@ -41,7 +46,6 @@ public class PessoaTeste {
         assertEquals("Rua X", pessoa.getEndereco().getRua());
     }
 
-    // Teste de exceção
     @Test
     public void deveLancarExcecaoQuandoIdadeNegativa() {
         ContaBancaria conta = new ContaBancaria("888888", 500);
@@ -53,4 +57,42 @@ public class PessoaTeste {
 
         assertEquals("Idade não pode ser negativa", exception.getMessage());
     }
+
+    @Test
+    public void deveRetornarMaioridadeQuandoIsMaiorDeIdade() {
+        ContaBancaria conta = new ContaBancaria("999999", 1000);
+        Endereco endereco = new Endereco("Rua X", "Cidade Y", "Estado Z", "12345-678");
+        Pessoa pessoa = new Pessoa("Maria", 30, conta, endereco);
+        pessoa.isMaiorDeIdade();
+        assertTrue(pessoa.isMaiorDeIdade());
+    }
+
+    @Test
+    public void deIncrementarIdadeQuandoFazAniversario() {
+        ContaBancaria conta = new ContaBancaria("999999", 1000);
+        Endereco endereco = new Endereco("Rua X", "Cidade Y", "Estado Z", "12345-678");
+
+        Pessoa pessoa = new Pessoa("Aline", 20, conta, endereco);
+        pessoa.fazerAniversario();
+        assertEquals(21, pessoa.getIdade());
+    }
+
+    @Test
+    public void deveRetornarNaoMaiorDeIdade() {
+        ContaBancaria conta = new ContaBancaria("123", 100);
+        Endereco endereco = new Endereco("Rua", "Cidade", "UF", "00000-000");
+        Pessoa pessoa = new Pessoa("Adolescente", 17, conta, endereco);
+        assertFalse(pessoa.isMaiorDeIdade());
+    }
+
+    @Test
+    public void deveRetornarMaiorDeIdadeCom18Anos() {
+        ContaBancaria conta = new ContaBancaria("123", 100);
+        Endereco endereco = new Endereco("Rua", "Cidade", "UF", "00000-000");
+        Pessoa pessoa = new Pessoa("Adulto", 18, conta, endereco);
+        assertTrue(pessoa.isMaiorDeIdade());
+    }
+
+
+
 }
