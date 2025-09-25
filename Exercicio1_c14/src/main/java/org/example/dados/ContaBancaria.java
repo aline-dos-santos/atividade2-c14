@@ -1,4 +1,4 @@
-package org.example;
+package org.example.dados;
 
 public class ContaBancaria {
     private String numero;
@@ -18,9 +18,9 @@ public class ContaBancaria {
 
     public void sacar(double valor) {
         if (valor > 0 && valor <= saldo) {
-            this.saldo -= valor;
+            saldo -= valor;
         } else {
-            throw new RuntimeException("Seu saldo é insuficiente para esse saque. Por favor, tente novamente.");
+            throw new RuntimeException("Seu saldo é insuficiente para esse saque.");
         }
     }
 }
