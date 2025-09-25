@@ -32,4 +32,46 @@ jobs:
       run: |
         cd Exercicio1_c14
         mvn clean install -DskipTests
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: jar file
+        path: Exercicio1_c14/target/*.jar 
         
+  test:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 23
+      uses: actions/setup-java@v4
+      with:
+        java-version: '23'
+        distribution: 'temurin'
+        cache: maven
+    - name: Run Unit Tests
+      run: |
+        cd Exercicio1_c14
+        mvn clean test site
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: test report
+        path: Exercicio1_c14/target/site/
+
+  notification:
+
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: notification
+      run: sh scripts/sendEmail.sh
