@@ -77,4 +77,4 @@ jobs:
     - name: Enviar notificação
       env:
         DEST_EMAIL: ${{ secrets.DEST_EMAIL }}
-        run: sh scripts/sendEmail.sh
+      run: sh scripts/sendEmail.sh
