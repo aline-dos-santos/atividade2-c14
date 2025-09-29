@@ -31,7 +31,7 @@ public class PessoaServiceMockTest {
     }
 
     @Test
-    public void shouldSuccessfullyWithdrawWhenContaAllowsIt() {
+    public void deveSacarComSucessoQuandoContaPermite() {
         Mockito.doNothing().when(contaMock).sacar(100.0);
 
         boolean sucesso = pessoaService.sacar(pessoa, 100.0);
@@ -41,7 +41,7 @@ public class PessoaServiceMockTest {
     }
 
     @Test
-    public void shouldFailToWithdrawWhenContaThrowsException() {
+    public void deveFalharAoSacarQuandoContaLancaExcecao() {
         Mockito.doThrow(new RuntimeException("Saldo insuficiente"))
                 .when(contaMock).sacar(200.0);
 
@@ -52,11 +52,12 @@ public class PessoaServiceMockTest {
     }
 
     @Test
-    public void shouldDepositSuccessfullyWhenCallingService() {
+    public void deveDepositarComSucessoAoChamarServico() {
         Mockito.doNothing().when(contaMock).depositar(150.0);
 
         pessoaService.depositar(pessoa, 150.0);
 
         Mockito.verify(contaMock).depositar(150.0);
     }
+
 }
