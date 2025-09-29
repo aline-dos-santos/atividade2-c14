@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +34,8 @@ jobs:
           path: Exercicio1_c14/target/*.jar 
 
   test:
-  
+    needs: [build, test]
+    
     runs-on: ubuntu-latest
 
     steps:
