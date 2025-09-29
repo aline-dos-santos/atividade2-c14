@@ -77,6 +77,7 @@ Erro introduzido: removida a verificação de saldo, fazendo com que o teste `sa
 Correção aplicada: restaurada verificação de `valor > 0 && valor <= saldo` e lançamento de exceção para valores inválidos;
 Resultado: O teste passou novamente.
 
-## Atividade Avaliativa - Pipeline CI/CD com GitHub Actions
+## Atividade Avaliativa
 
-Contém implementação de um pipeline de CI/CD usando GitHub Actions para o projeto. O pipeline executa testes (unitários e mocks), empacotamento (build), armazena artefatos (pacote e relatório de testes) e executa um script de notificação por e‑mail. Uso de variáveis de ambiente para o destinatário do e‑mail e os jobs test e notification rodam em paralelo.
+Implementação de um pipeline de CI/CD usando GitHub Actions para o projeto. O pipeline executa testes (unitários e mocks), empacotamento (build), armazena artefatos (pacote e relatório de testes) e executa um script de notificação por e‑mail. Uso de variáveis de ambiente para o destinatário do e‑mail e os jobs build/test são executados em paralelo
+
