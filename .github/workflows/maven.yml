@@ -71,7 +71,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: notification
-      run: sh scripts/sendEmail.sh
+    - name: Instalar mailutils
+      run: sudo apt-get update && sudo apt-get install -y mailutils
+
+    - name: Enviar notificação
+      env:
+        DEST_EMAIL: ${{ secrets.DEST_EMAIL }}
+        run: sh scripts/sendEmail.sh
