@@ -66,4 +66,7 @@ jobs:
       - name: Enviar notificação
         env:
           DEST_EMAIL: ${{ vars.DEST_EMAIL }}
-        run: sh scripts/sendEmail.sh
+        run: |
+          chmod +x scripts/sendEmail.sh
+          sh scripts/sendEmail.sh
+          
