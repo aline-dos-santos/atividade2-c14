@@ -61,9 +61,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Instalar mailutils
-        run: sudo apt-get update && sudo apt-get install -y mailutils
-      - name: Enviar notificação
+      - name: variavel
         env:
-          DEST_EMAIL: ${{ vars.DEST_EMAIL }}
-        run: sh scripts/sendEmail.sh
+          EMAIL_PIPELINE: ${{ vars.DEST_EMAIL }} 
+        run: echo "DEST_EMAIL = $DEST_EMAIL"
+      - name: enviar notificação
+        env:
+          EMAIL_PIPELINE: ${{ vars.DEST_EMAIL }} 
+        run: |
+          chmod +x scripts/sendEmail.sh
+          sh scripts/sendEmail.sh
+          
